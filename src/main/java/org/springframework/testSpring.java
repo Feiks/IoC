@@ -10,6 +10,8 @@ public class testSpring {
                 "applicationContext.xml");
 
         MusicPlayer musicPlayer = boom.getBean("musicPlayer",MusicPlayer.class);
-        musicPlayer.playMusic();
+        musicPlayer.playMusicList();
+        System.out.println( musicPlayer.getName());
+        System.out.println( musicPlayer.getVolume());
     }
 }
