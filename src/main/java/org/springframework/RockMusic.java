@@ -1,8 +1,8 @@
 package org.springframework;
 
-public class RockMusic implements Music{
+public class RockMusic implements  Music{
     @Override
-    public String getSong() {
-    return "This is rock Music";
+    public void getSong() {
+        System.out.println("Это рок - музыка , суки");
     }
 }

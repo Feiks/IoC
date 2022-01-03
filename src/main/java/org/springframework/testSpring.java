@@ -6,12 +6,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class testSpring {
     public static void main(String[] args) {
 
-        ClassPathXmlApplicationContext boom = new ClassPathXmlApplicationContext(
-                "applicationContext.xml");
-
+        ClassPathXmlApplicationContext boom = new ClassPathXmlApplicationContext("applicationContext.xml");
         MusicPlayer musicPlayer = boom.getBean("musicPlayer",MusicPlayer.class);
-        musicPlayer.playMusicList();
-        System.out.println( musicPlayer.getName());
-        System.out.println( musicPlayer.getVolume());
+        System.out.println(musicPlayer.getName());
+        System.out.println(musicPlayer.getVolume());
+        musicPlayer.playMusic();
+        boom.close();
+
+
     }
 }

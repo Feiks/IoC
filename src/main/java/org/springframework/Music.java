@@ -1,5 +1,6 @@
 package org.springframework;
 
 public interface Music {
-    public String getSong();
+
+    public void getSong();
 }

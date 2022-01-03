@@ -5,19 +5,16 @@ import java.util.Collections;
 import java.util.List;
 
 public class MusicPlayer {
-   private List<Music> musicList = new ArrayList<>();
-
-
-
-
+    private Music music;
     private String name;
-   private int volume;
-    public List<Music> getMusicList() {
-        return musicList;
+    private int volume;
+
+    public Music getMusic() {
+        return music;
     }
 
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
+    public void setMusic(Music music) {
+        this.music = music;
     }
 
     public String getName() {
@@ -33,15 +30,11 @@ public class MusicPlayer {
     }
 
     public void setVolume(int volume) {
-        volume = volume;
+        this.volume = volume;
     }
 
-
-
-
-    public void playMusicList(){
-        for(Music music:musicList){
-            System.out.println("Playing " + music.getSong());
-        }
+    public void playMusic(){
+        music.getSong();
     }
 }
+
