@@ -5,9 +5,25 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
 
 public class MusicPlayer {
-   private Music music1;
+
+    private List<Music> musicList;
+
+    public List<Music> getMusicList() {
+        return musicList;
+    }
+
+    public void setMusicList(List<Music> musicList) {
+        this.musicList = musicList;
+    }
+
+    private Music music1;
     private Music music2;
     @Value("${musicPlayer.name}")
     private String name;
@@ -30,12 +46,12 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    public MusicPlayer(@Qualifier("classicalMusic")Music music1, @Qualifier("rockMusic")Music music2 ) {
-        this.music1 = music1;
-        this.music2= music2;
+    public MusicPlayer(List<Music> musicList ) {
+        this.musicList = musicList;
     }
 
     public void playMusic() {
-        System.out.println("Playing " + music1.getSong() + " " + music2.getSong());
+        Random random = new Random();
+        System.out.println("Plaaying " + musicList.get(random.nextInt(musicList.size())).getSong() + "With volume " + this.getVolume() );
     }
 }
