@@ -1,22 +1,22 @@
 package org.springframework;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class testSpring {
     public static void main(String[] args) {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+                "applicationContext.xml"
+        );
 
-        ClassPathXmlApplicationContext boom = new ClassPathXmlApplicationContext("applicationContext.xml");
-        Music music = boom.getBean("classicalMusic", Music.class);
-        MusicPlayer musicPlayer = new MusicPlayer(music);
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         musicPlayer.playMusic();
-        Music music1 = boom.getBean("rockMusic", Music.class);
-        MusicPlayer classicalPlayer = new MusicPlayer(music1);
-        classicalPlayer.playMusic();
+        ClassicalMusic classicalMusic1 = context.getBean("classicalMusic", ClassicalMusic.class);
+        ClassicalMusic classicalMusic2 = context.getBean("classicalMusic", ClassicalMusic.class);
+        System.out.println(musicPlayer.getName());
+        System.out.println(musicPlayer.getVolume());
+        System.out.println(classicalMusic1.equals(classicalMusic2));
+        System.out.println(classicalMusic1==classicalMusic2);
 
-
-        boom.close();
-
-
+        context.close();
     }
 }

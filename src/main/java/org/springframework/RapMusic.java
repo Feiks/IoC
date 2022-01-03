@@ -2,10 +2,10 @@ package org.springframework;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class RapMusic implements Music{
     @Override
-    public void getSong() {
-        System.out.println( "%0 Cent Bitches");
+    public String getSong() {
+        return "%0 Cent Bitches";
     }
 }
